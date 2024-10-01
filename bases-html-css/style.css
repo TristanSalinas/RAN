@@ -1,6 +1,13 @@
 .fw-bold {
   font-weight: bold;
 }
+.italic {
+  font-style: italic;
+}
+
+.ff-courier {
+  font-family: Courier;
+}
 
 .ta-center {
   text-align: center;
@@ -8,6 +15,14 @@
 
 .td-underline {
   text-decoration: underline;
+}
+
+.bg-green {
+  background-color: chartreuse;
+}
+
+.bg-salmon {
+  background-color: salmon;
 }
 
 .img-wd-50vw-centered {
