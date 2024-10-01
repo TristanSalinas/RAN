@@ -1,0 +1,26 @@
+.fw-bold {
+  font-weight: bold;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.td-underline {
+  text-decoration: underline;
+}
+
+.img-wd-50vw-centered {
+  display: block;
+  width: 50vw;
+  margin-inline: auto;
+}
+
+.tiny-camille {
+  width: 4rem;
+}
+
+.flex-align-centered {
+  display: flex;
+  align-items: center;
+}
