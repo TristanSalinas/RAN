@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.petite-rouge {
+  width: fit-content;
+  background-color: red;
+  aspect-ratio: 1;
+  margin-bottom: 0;
+}
+
+.moyenne-jaune {
+  background-color: yellow;
+  width: 25rem;
+  aspect-ratio: 1;
+  margin-block: 0;
+}
+
+.grande-verte {
+  margin-top: 0;
+  background-color: green;
+  width: 100%;
+  aspect-ratio: 1;
+}
