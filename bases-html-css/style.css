@@ -1,3 +1,7 @@
+.block {
+  display: block;
+}
+
 .fw-bold {
   font-weight: bold;
 }
@@ -17,6 +21,10 @@
   text-decoration: underline;
 }
 
+.col-red {
+  color: red;
+}
+
 .bg-green {
   background-color: chartreuse;
 }
@@ -24,11 +32,20 @@
 .bg-salmon {
   background-color: salmon;
 }
+.bg-lightskyblue {
+  background-color: lightskyblue;
+}
 
-.img-wd-50vw-centered {
-  display: block;
-  width: 50vw;
+.bg-lightblue {
+  background-color: lightblue;
+}
+
+.margin-inl-auto {
   margin-inline: auto;
+}
+
+.wd-50vw {
+  width: 50vw;
 }
 
 .tiny-camille {
@@ -38,4 +55,8 @@
 .flex-align-centered {
   display: flex;
   align-items: center;
+}
+
+.border {
+  border: 1px solid black;
 }
