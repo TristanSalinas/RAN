@@ -1,0 +1,16 @@
+.border {
+  border: 1px solid black;
+}
+.wd-100per {
+  width: 100%;
+}
+
+.bg-red {
+  background-color: red;
+}
+.bg-yellow {
+  background-color: yellow;
+}
+.bg-green {
+  background-color: green;
+}
