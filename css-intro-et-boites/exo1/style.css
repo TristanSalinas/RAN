@@ -7,16 +7,16 @@
 }
 
 .petite-rouge {
-  width: fit-content;
+  width: fit-content; /* fit-content: valeure magique qui marche avec width et height */
   background-color: red;
-  aspect-ratio: 1;
+  aspect-ratio: 1; /* aspect-ratio: valeure magique qui rend la height equivalente à la width */
   margin-bottom: 0;
 }
 
 .moyenne-jaune {
   background-color: yellow;
-  width: 25rem;
-  aspect-ratio: 1;
+  width: 25rem; /* la plupart du temps 1 rem = 16 px on verra les unitées plus tard a dit Fabrice*/
+  aspect-ratio: 1; /* note: on aurais pu ici mettre height: 25rem; c'est pareil*/
   margin-block: 0;
 }
 
