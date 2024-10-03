@@ -1,4 +1,4 @@
-/* RESET */
+/***************** RESET *******************/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,32 +9,31 @@
   list-style: none;
   padding: 0;
 }
+a {
+  text-decoration: 0;
+  color: black;
+}
 
-/*UTILS*/
+/*****************UTILS*********************/
 
 :root {
-  --lighter-green: chartreuse;
+  --fluo-green: chartreuse;
+  --lighter-green: lightgreen;
   --medium-green: limegreen;
   --darker-green: green;
 }
 
-/*Components*/
+/**************COMPONENTS***************/
 
 .header {
   position: relative;
-}
-
-.header ::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 0 0;
-  z-index: -1;
-  background-color: chartreuse;
+  background-color: var(--fluo-green);
 }
 
 .flex-menu {
+  width: 100%;
   display: flex;
-  justify-items: center;
+  justify-content: center;
   gap: 2px;
 }
 
@@ -44,24 +43,35 @@
 
 .dropdown-head {
   padding: 1.5rem;
-  background-color: green;
+  background-color: var(--darker-green);
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   width: 100%;
+  background-color: var(--lighter-green);
 }
 
 .dropdown-content li {
   padding: 1rem;
 }
 
+/*********** MAGIC **************/
+
+.dropdown-content li:hover {
+  background-color: var(--medium-green);
+  cursor: pointer;
+}
+
 .dropdown-head:hover {
-  background-color: limegreen;
+  background-color: var(--medium-green);
+  cursor: pointer;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-  border: 1px solid red;
+}
+.dropdown:hover .dropdown-head {
+  background-color: var(--medium-green);
 }
