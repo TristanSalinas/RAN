@@ -1,1 +1,2 @@
-Juste un repo pour contenir les exos et tps dans le cadre de ma formation.
+Ce repos contient les exos et tps realisés avec la 3w.
+Il concerne la première periode de remise à niveau.
