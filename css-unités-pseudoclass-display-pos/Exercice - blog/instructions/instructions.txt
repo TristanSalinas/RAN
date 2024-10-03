@@ -1,0 +1,8 @@
+IMPORTANT : les tailles seront en em / rem comme vu en cours
+
+header
+ - bordure transparente : rechercher sur le web comment faire
+
+menu
+ - lien actif : rouge
+ - espacement entre les rubriques : 16px
