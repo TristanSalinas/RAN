@@ -1,0 +1,67 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.header menu,
+.header ul {
+  list-style: none;
+  padding: 0;
+}
+
+/*UTILS*/
+
+:root {
+  --lighter-green: chartreuse;
+  --medium-green: limegreen;
+  --darker-green: green;
+}
+
+/*Components*/
+
+.header {
+  position: relative;
+}
+
+.header ::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  z-index: -1;
+  background-color: chartreuse;
+}
+
+.flex-menu {
+  display: flex;
+  justify-items: center;
+  gap: 2px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-head {
+  padding: 1.5rem;
+  background-color: green;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+.dropdown-content li {
+  padding: 1rem;
+}
+
+.dropdown-head:hover {
+  background-color: limegreen;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  border: 1px solid red;
+}

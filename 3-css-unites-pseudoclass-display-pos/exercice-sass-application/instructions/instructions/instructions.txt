@@ -1,0 +1,37 @@
+Partie 1 :
+----------
+
+Header et footer fixés : le texte scroll dessous
+
+ASTUCE : utiliser float left / right pour aligner les boutons
+
+Partie 2 :
+----------
+
+La popup flottante au dessus du texte
+
+Partie 3 :
+----------
+
+La barre de menu à gauche avec changement de fond au scroll de la souris
+
+Partie 4 :
+----------
+
+Menu déroulant qui s'affiche lorsque la souris passe au dessus de l'image paramètres
+
+Partie 5 :
+----------
+
+Le panneau mon compte qui s'affiche lorsque l'utilisateur passe sa souris au dessus du bouton "profile"
+
+Partie 6 :
+----------
+
+La modale qui s'affiche lorsque l'utilisateur clique sur le bouton aide.
+Un overlay apprait en dessous, il recouvre toute la fenetre.
+
+Au clic que la croix en haut à droite, la modale se referme
+
+NOTE : pas de Javascript ici, tout se fiat en CSS (même l'ouverture / fermeture de la modale).
+ASTUCE : utiliser la pseudo-classe :target pour se faire.
