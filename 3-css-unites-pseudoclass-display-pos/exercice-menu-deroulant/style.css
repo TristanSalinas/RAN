@@ -3,30 +3,33 @@
   box-sizing: border-box;
   margin: 0;
 }
+body {
+  background-color: rgb(79, 69, 89);
+}
 
 .header menu,
 .header ul {
   list-style: none;
   padding: 0;
 }
-a {
+a,
+p {
   text-decoration: 0;
-  color: black;
+  color: white;
 }
 
 /*****************UTILS*********************/
 
 :root {
-  --fluo-green: chartreuse;
-  --lighter-green: lightgreen;
-  --medium-green: limegreen;
-  --darker-green: green;
+  --fluo-green: rgb(54, 85, 241);
+  --lighter-green: rgb(141, 105, 225);
+  --medium-green: rgb(52, 49, 89);
+  --darker-green: rgb(24, 16, 51);
 }
 
 /*****************COMPONENTS****************/
 
 .header {
-  position: relative;
   background-color: var(--fluo-green);
 }
 
@@ -71,6 +74,8 @@ a {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
 .dropdown:hover .dropdown-head {
+  /*  LAaaaaa*/
   background-color: var(--medium-green);
 }
