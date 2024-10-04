@@ -23,7 +23,7 @@ a {
   --darker-green: green;
 }
 
-/**************COMPONENTS***************/
+/*****************COMPONENTS****************/
 
 .header {
   position: relative;
@@ -31,7 +31,6 @@ a {
 }
 
 .flex-menu {
-  width: 100%;
   display: flex;
   justify-content: center;
   gap: 2px;
