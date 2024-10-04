@@ -1,15 +1,39 @@
-body {
-    margin: 16px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+menu {
+  list-style: none;
+  position: absolute;
+  display: flex;
+  bottom: 1rem;
+  gap: 1rem;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
 .grid {
-    display: grid;
-    height: 50vh;
-    gap: 16px;
-    grid-template-rows: repeat(9, 100px);
-    grid-template-columns: repeat(4, 100px);
+  margin: auto;
+  display: grid;
+  height: 50vh;
+  gap: 16px;
+  grid-template-rows: repeat(9, 100px);
+  grid-template-columns: repeat(4, 100px);
 }
 
 .box {
-    border: 2px solid orange;
-    background-color: wheat;
+  border: 2px solid orange;
+  background-color: wheat;
+}
+
+/****** EXERCICE 1 *********/
+
+#\31.box1 {
+  background-color: blue !important;
+  grid-row: 2 4;
 }

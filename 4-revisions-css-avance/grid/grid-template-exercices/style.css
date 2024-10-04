@@ -1,43 +1,52 @@
-/* Commun */
-body {
-    margin: 16px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+menu {
+  list-style: none;
+  position: absolute;
+  display: flex;
+  gap: 1rem;
+}
+
 .grid {
-    display: grid;
-    height: 50vh;
-    gap: 16px;
+  display: grid;
+  height: 50vh;
+  gap: 16px;
 }
 .box {
-    border: 2px solid orange;
-    background-color: wheat;
+  border: 2px solid orange;
+  background-color: wheat;
 }
 
 /* Exercice 1 */
 .grid {
-    /* Première ligne à 50px, le reste est fractionné */
+  /* Première ligne à 50px, le reste est fractionné */
 }
 
 /* Exercice 2 */
 .grid {
-    /* Première ligne et première colonne à 50px, le reste est fractionné */
+  /* Première ligne et première colonne à 50px, le reste est fractionné */
 }
 
 /* Exercice 3 */
 .grid {
-    /* Fractionnement */
+  /* Fractionnement */
 }
 
 /* Exercice 4 */
 .grid {
-    /* Première ligne à 50%, Dernière colonne à 33%, le reste est fractionné */
+  /* Première ligne à 50%, Dernière colonne à 33%, le reste est fractionné */
 }
 
 /* Exercice 5 */
 .grid {
-    /* Première ligne à 50%, Première colonne à 33%, le reste est fractionné */
+  /* Première ligne à 50%, Première colonne à 33%, le reste est fractionné */
 }
 
 /* Exercice 6 */
 .grid {
-    /* Première ligne à 50%, Première colonne à 33%, le reste est fractionné */
+  /* Première ligne à 50%, Première colonne à 33%, le reste est fractionné */
 }
