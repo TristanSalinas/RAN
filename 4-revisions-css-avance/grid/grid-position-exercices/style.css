@@ -6,9 +6,11 @@
 
 menu {
   list-style: none;
-  position: absolute;
+  position: fixed;
   display: flex;
-  bottom: 1rem;
+  flex-direction: column;
+  top: 1rem;
+  left: 1rem;
   gap: 1rem;
 }
 
@@ -20,20 +22,118 @@ body {
 .grid {
   margin: auto;
   display: grid;
-  height: 50vh;
+  height: fit-content;
+  margin-block: 1rem;
   gap: 16px;
   grid-template-rows: repeat(9, 100px);
   grid-template-columns: repeat(4, 100px);
+  transition: 1s;
 }
 
 .box {
   border: 2px solid orange;
   background-color: wheat;
+  transition: 1s;
 }
 
 /****** EXERCICE 1 *********/
 
-#\31.box1 {
-  background-color: blue !important;
-  grid-row: 2 4;
+#c1.box1 {
+  background-color: blue;
+  grid-row: 2 / 4;
+  grid-column: 2 / 4;
+}
+
+/****** EXERCICE 2 *********/
+
+#c1.box2 {
+  background-color: blue;
+  grid-row: 2 /6;
+  grid-column: 1;
+}
+
+/****** EXERCICE 3 *********/
+
+#c1.box3 {
+  background-color: blue;
+  grid-row: 1 /9;
+  grid-column: 2 /4;
+}
+
+/****** EXERCICE 4 *********/
+
+#c1.box4 {
+  background-color: blue;
+  grid-row: 1;
+  grid-column: 2;
+}
+
+#c10.box4 {
+  background-color: yellowgreen;
+  grid-row: 3 /5;
+  grid-column: 2 / 4;
+}
+
+/****** EXERCICE 4 *********/
+
+.grid5 {
+  grid-template-areas:
+    "c1 c2 c2 c3"
+    "c1 c4 c4 c4"
+    "c5 c5 c6 c6"
+    "c5 c5 c6 c6"
+    "c7 c8 c13 c13"
+    "c10 c8 c13 c13"
+    "c10 c9 c9 c15"
+    "c11 c9 c9 c12"
+    "c14 c14 c16 c12";
+}
+
+#c1.box5 {
+  grid-area: c1;
+}
+#c2.box5 {
+  grid-area: c2;
+}
+#c3.box5 {
+  grid-area: c3;
+}
+#c4.box5 {
+  grid-area: c4;
+}
+#c5.box5 {
+  grid-area: c5;
+}
+#c6.box5 {
+  grid-area: c6;
+}
+#c7.box5 {
+  grid-area: c7;
+}
+#c8.box5 {
+  grid-area: c8;
+}
+#c9.box5 {
+  grid-area: c9;
+}
+#c10.box5 {
+  grid-area: c10;
+}
+#c11.box5 {
+  grid-area: c11;
+}
+#c12.box5 {
+  grid-area: c12;
+}
+#c13.box5 {
+  grid-area: c13;
+}
+#c14.box5 {
+  grid-area: c14;
+}
+#c15.box5 {
+  grid-area: c15;
+}
+#c16.box5 {
+  grid-area: c16;
 }

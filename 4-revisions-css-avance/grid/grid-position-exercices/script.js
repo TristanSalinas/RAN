@@ -3,15 +3,24 @@ const button2 = document.getElementById("ex2");
 const button3 = document.getElementById("ex3");
 const button4 = document.getElementById("ex4");
 const button5 = document.getElementById("ex5");
-const button6 = document.getElementById("ex6");
 
 const boxes = document.querySelectorAll(".box");
 const container = document.getElementById("container");
 const title = document.getElementById("title");
 
+function getRandomColor() {
+  let letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 button1.addEventListener("click", () => {
   boxes.forEach((element) => {
     element.className = "box box1";
+    element.style.backgroundColor = getRandomColor();
   });
   container.className = "grid grid1";
 });
@@ -19,6 +28,7 @@ button1.addEventListener("click", () => {
 button2.addEventListener("click", () => {
   boxes.forEach((element) => {
     element.className = "box box2";
+    element.style.backgroundColor = getRandomColor();
   });
   container.className = "grid grid2";
 });
@@ -26,25 +36,22 @@ button2.addEventListener("click", () => {
 button3.addEventListener("click", () => {
   boxes.forEach((element) => {
     element.className = "box box3";
+    element.style.backgroundColor = getRandomColor();
   });
   container.className = "grid grid3";
 });
 button4.addEventListener("click", () => {
   boxes.forEach((element) => {
     element.className = "box box4";
+    element.style.backgroundColor = getRandomColor();
   });
   container.className = "grid grid4";
 });
+
 button5.addEventListener("click", () => {
   boxes.forEach((element) => {
     element.className = "box box5";
+    element.style.backgroundColor = getRandomColor();
   });
   container.className = "grid grid5";
-});
-
-button6.addEventListener("click", () => {
-  boxes.forEach((element) => {
-    element.className = "box box6";
-  });
-  container.className = "grid grid6";
 });
