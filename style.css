@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.flex-body {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  background-color: rgb(69, 69, 107);
+}
+
+.content {
+  background-color: rgb(105, 105, 142);
+  width: min(1000px, 100%);
+}

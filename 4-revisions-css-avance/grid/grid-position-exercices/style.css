@@ -1,0 +1,15 @@
+body {
+    margin: 16px;
+}
+.grid {
+    display: grid;
+    height: 50vh;
+    gap: 16px;
+    grid-template-rows: repeat(9, 100px);
+    grid-template-columns: repeat(4, 100px);
+}
+
+.box {
+    border: 2px solid orange;
+    background-color: wheat;
+}
