@@ -23,14 +23,26 @@
         <li>
           <button><img src="./assets/sass-images/help.png" /></button>
         </li>
-        <li>
-          <button><img src="./assets/sass-images/account.png" /></button>
+        <li class="dropdown">
+          <button class="dropdown-head">
+            <img src="./assets/sass-images/account.png" />
+          </button>
+          <div class="dropdown-content account-card-bridge">
+            <div class="account-card flex flex-column gap1 flex-justify-c">
+              <img src="./assets/sass-images/account.png" alt="" />
+              <p>Tristan Salinas</p>
+              <p>tristan.salinas@3wa.io</p>
+              <button>Gérer</button>
+              <p>Ajouter</p>
+            </div>
+          </div>
         </li>
       </menu>
+      <p class="data-saved-popup">Données enregistrées</p>
     </header>
     <aside class="sidebar sidebar-area">
       <nav>
-        <menu class="flex flex-column">
+        <menu class="flex flex-column flex-justify-c">
           <li>Ajouter</li>
           <li>Mes Recettes</li>
           <li>Plan Menu</li>
@@ -38,7 +50,6 @@
       </nav>
     </aside>
     <main class="content content-area">
-      <p class="data-saved-popup">Données enregistrées</p>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis
         iusto omnis error, ipsum earum consectetur asperiores accusamus, in quos
