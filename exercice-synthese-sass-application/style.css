@@ -29,6 +29,10 @@ body {
   font-family: sans-serif;
 }
 
+h2 {
+  margin-block: 2rem;
+}
+
 .flex {
   display: flex;
 }
@@ -88,6 +92,51 @@ body {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.header input[type="checkbox"] {
+  display: none;
+}
+
+/******Modal window magic *****/
+.popup-content {
+  display: none;
+  position: fixed;
+  inset: 0 0 0 0;
+  z-index: 5000;
+  background-color: rgba(0, 0, 0, 0.347);
+}
+
+.center-window {
+  position: relative;
+  width: 45%;
+  height: 60%;
+  background-color: var(--primary-color);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.close-button {
+  position: absolute;
+  top: 0.25rem;
+  right: 1rem;
+}
+
+.close-button:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+.center-window article {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.checkbox:checked + .popup-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*******************ACTUAL HEADER STYLING*******************/
 .header {
   position: relative;
@@ -97,6 +146,7 @@ body {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 5;
 }
 
 .header img {
@@ -165,6 +215,7 @@ body {
   top: var(--header-height);
   background-color: var(--third-color);
   padding-top: 1rem;
+  z-index: 1;
 }
 
 .sidebar li {
@@ -178,6 +229,11 @@ body {
 }
 
 /*********************CONTENT ***********************/
+.content h1 {
+  text-align: center;
+  margin: 2rem;
+  margin-top: 6rem;
+}
 
 .content p {
   max-width: 80ch;
@@ -197,4 +253,5 @@ body {
   text-align: center;
   color: white;
   background-color: black;
+  z-index: 5;
 }
