@@ -1,0 +1,153 @@
+/***************** RRESET ************************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+menu,
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+/*********************** UTILS *******************/
+
+:root {
+  --primary-color: white;
+  --secondary-color: lightgrey;
+  --third-color: rgb(238, 237, 237);
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex .spacer {
+  flex-grow: 1;
+}
+
+.gap1 {
+  gap: 1rem;
+}
+
+/******************* LAYOUT ******************/
+
+.grid-layout {
+  --side-bar-width: 15rem;
+  --header-height: 4rem;
+
+  display: grid;
+  grid-template-rows: var(--header-height) 1fr;
+  grid-template-columns: var(--side-bar-width) 1fr;
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+}
+
+.header-area {
+  grid-area: header;
+}
+
+.sidebar-area {
+  grid-area: sidebar;
+}
+
+.content-area {
+  grid-area: content;
+}
+
+/********************* HEADER ********************/
+
+.header {
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.header img {
+  width: 3rem;
+  aspect-ratio: 1;
+}
+
+.header-right,
+.header-left {
+  align-items: center;
+}
+
+.date {
+  font-size: 1.5rem;
+}
+
+.header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/********************** SIDE BAR ********************/
+
+.sidebar {
+  position: fixed;
+  width: var(--side-bar-width);
+  bottom: 0;
+  top: var(--header-height);
+  background-color: var(--third-color);
+  padding-top: 1rem;
+}
+
+.sidebar li {
+  text-align: center;
+  padding: 1rem;
+}
+
+.sidebar li:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+}
+
+/*********************CONTENT ***********************/
+.content .data-saved-popup {
+  position: fixed;
+  color: white;
+  background-color: green;
+  padding: 1rem;
+  top: calc(var(--header-height) + 1rem);
+  right: 1rem;
+}
+
+.content p {
+  z-index: 0;
+  padding: 1rem;
+}
+
+/********************** FOOTER ******************/
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
+  text-align: center;
+  color: white;
+  background-color: black;
+}

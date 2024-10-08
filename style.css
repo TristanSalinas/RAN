@@ -61,11 +61,13 @@ body {
 }
 .subwindow {
   background-color: white;
+  position: relative;
   scale: 0.75;
   border-radius: 5px;
   width: 100%;
   aspect-ratio: 16/9;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.15);
+  resize: both;
 }
 
 .pdf-embed {
