@@ -17,6 +17,7 @@ button {
   padding: 0;
   background-color: transparent;
 }
+
 /*********************** UTILS *******************/
 
 :root {
@@ -33,24 +34,8 @@ h2 {
   margin-block: 2rem;
 }
 
-.flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.flex-justify-c {
-  justify-content: center;
-}
-
-.flex .spacer {
+.spacer {
   flex-grow: 1;
-}
-
-.gap1 {
-  gap: 1rem;
 }
 
 /******************* LAYOUT ******************/
@@ -82,13 +67,16 @@ h2 {
 /********************* HEADER ********************/
 
 /****Header Dropdown magic UTILS****/
+
 .dropdown {
   position: relative;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
 }
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -123,7 +111,7 @@ h2 {
 }
 
 .close-button:hover {
-  background-color: red;
+  background-color: rgb(255, 74, 74);
   cursor: pointer;
 }
 
@@ -136,51 +124,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/*******************ACTUAL HEADER STYLING*******************/
-.header {
-  position: relative;
-  padding: 0.5rem;
-  background-color: var(--secondary-color);
-  position: sticky;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 5;
-}
-
-.header img {
-  width: 3rem;
-  aspect-ratio: 1;
-}
-
-.header-right,
-.header-left {
-  align-items: center;
-}
-
-.date {
-  font-size: 1.5rem;
-}
-
-.header button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.header-right > li {
-  cursor: pointer;
-}
-.data-saved-popup {
-  position: absolute;
-  color: white;
-  background-color: green;
-  padding: 1rem;
-  top: calc(var(--header-height) + 1rem);
-  right: 1rem;
-  z-index: -1;
 }
 
 /******** modals and dropdowns **********/
@@ -200,7 +143,9 @@ h2 {
   right: 0;
   top: var(--header-height);
   background-color: var(--secondary-color);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -216,17 +161,71 @@ h2 {
   background-color: var(--secondary-color);
   border: 1px solid black;
 }
+
 .parameters-dropdown li {
   padding: 1rem;
 }
+
 .parameters-dropdown li:not(:first-child) {
   border-top: 1px solid black;
 }
+
 .parameters-dropdown li:hover {
   padding: 1rem;
   background-color: var(--third-color);
   cursor: pointer;
 }
+
+/*******************ACTUAL HEADER STYLING*******************/
+.header {
+  position: relative;
+  display: flex;
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.header img {
+  width: 3rem;
+  aspect-ratio: 1;
+}
+
+.header-right,
+.header-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.date {
+  font-size: 1.5rem;
+}
+
+.header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-right > li {
+  cursor: pointer;
+}
+
+.data-saved-popup {
+  position: absolute;
+  color: white;
+  background-color: green;
+  padding: 1rem;
+  top: calc(var(--header-height) + 1rem);
+  right: 1rem;
+  z-index: -1;
+}
+
 /********************** SIDE BAR ********************/
 
 .sidebar {
