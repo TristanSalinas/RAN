@@ -93,11 +93,12 @@ h2 {
   display: block;
 }
 
+/******Modal window magic *****/
+
 .header input[type="checkbox"] {
   display: none;
 }
 
-/******Modal window magic *****/
 .popup-content {
   display: none;
   position: fixed;
@@ -169,6 +170,9 @@ h2 {
   align-items: center;
   cursor: pointer;
 }
+.header-right > li {
+  cursor: pointer;
+}
 .data-saved-popup {
   position: absolute;
   color: white;
@@ -206,6 +210,23 @@ h2 {
   margin-inline: auto;
 }
 
+.parameters-dropdown {
+  width: 15rem;
+  height: fit-content;
+  background-color: var(--secondary-color);
+  border: 1px solid black;
+}
+.parameters-dropdown li {
+  padding: 1rem;
+}
+.parameters-dropdown li:not(:first-child) {
+  border-top: 1px solid black;
+}
+.parameters-dropdown li:hover {
+  padding: 1rem;
+  background-color: var(--third-color);
+  cursor: pointer;
+}
 /********************** SIDE BAR ********************/
 
 .sidebar {
