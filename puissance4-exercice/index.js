@@ -1,7 +1,11 @@
-function displayController(gameController, board) {
+function displayController(board) {
   const boardGrid = document.getElementById("board-grid");
   const resetbutton = document.createElement("button");
   resetbutton.textContent = "reset";
+  boardGrid.append(resetbutton);
+  resetbutton.addEventListener("click", () => {
+    game.newGame();
+  });
 
   for (let i = 0; i < board.getBoardArray()[0].length; i++) {
     const button = document.createElement("button");
@@ -12,27 +16,25 @@ function displayController(gameController, board) {
     boardGrid.append(button);
   }
 
-  function refresh() {
+  const refresh = (currentPlayer) => {
     //console.clear();
+    console.log(currentPlayer);
     board.getBoardArray().map((row) => console.log(row));
-  }
+  };
 
-  function endGameScreen(winner) {
+  const endGameScreen = (winner) => {
     console.log(winner + " Win !");
-  }
+  };
   return { refresh, endGameScreen };
 }
 
-function boardController(gameController) {
+function boardController() {
   let numberOfRow = 6;
   let numberOfCol = 7;
   let _boardArray = [];
+  let isWon = false;
 
-  function getBoardArray() {
-    return _boardArray.map((row) => [...row]); //Pourquoi je doit faire une copie ???
-  }
-
-  function initBoard() {
+  const initBoard = () => {
     _boardArray = [];
     for (let i = 0; i < numberOfRow; i++) {
       let row = [];
@@ -41,9 +43,13 @@ function boardController(gameController) {
       }
       _boardArray.push(row);
     }
-  }
+  };
 
-  function checkHorizontal(row, marker) {
+  const getBoardArray = () => {
+    return _boardArray.map((row) => [...row]);
+  };
+
+  const checkHorizontal = (row, marker) => {
     let markerCounter = 0;
     for (let i = 0; i < numberOfCol; i++) {
       if (getBoardArray()[row][i] === marker) {
@@ -56,9 +62,9 @@ function boardController(gameController) {
         return true;
       }
     }
-  }
+  };
 
-  function checkVertical(col, marker) {
+  const checkVertical = (col, marker) => {
     let markerCounter = 0;
     for (let i = 0; i < numberOfRow; i++) {
       if (getBoardArray()[i][col] === marker) {
@@ -71,70 +77,73 @@ function boardController(gameController) {
         return true;
       }
     }
-  }
-  function checkdiagonal() {
+  };
+  const checkdiagonal = () => {
     return false;
-  }
+  };
 
-  function checkWinningMove(row, col, marker) {
+  const checkWinningMove = (row, col, marker) => {
     if (
       checkHorizontal(row, marker) ||
       checkVertical(col, marker) ||
       checkdiagonal()
     ) {
-      gameController.isWon = true;
-      game.handleEndGame();
+      isWon = true;
     }
-  }
+  };
 
-  function playMove(col, marker) {
+  const playMove = (col, marker) => {
     for (let i = numberOfRow - 1; i >= 0; i--) {
       if (_boardArray[i][col] === 0) {
         _boardArray[i][col] = marker;
         checkWinningMove(i, col, marker);
+        console.log(isWon);
         break;
       }
     }
-  }
+  };
 
-  initBoard(numberOfRow, numberOfCol);
-
-  return { getBoardArray, playMove };
+  return { getBoardArray, playMove, initBoard, isWon };
 }
 
 function gameController() {
-  const board = boardController(this);
-  const display = displayController(this, board);
-  let isWon = false;
+  const board = boardController();
+  board.initBoard();
+  const display = displayController(board);
 
-  function player(name, marker) {
+  const player = (name, marker) => {
     return { name, marker };
-  }
+  };
 
   const player1 = player("Player 1", 1);
   const player2 = player("Player 2", 2);
 
-  let currentPlayer = player1;
+  let currentPlayer;
 
-  function takeTurn(column) {
+  const takeTurn = (column) => {
     board.playMove(column, currentPlayer.marker);
-    currentPlayer = currentPlayer === player1 ? player2 : player1;
-    display.refresh();
-  }
+    console.log(board.isWon);
+    if (board.isWon) {
+      handleEndGame();
+      console.log("alo");
+    } else {
+      currentPlayer = currentPlayer === player1 ? player2 : player1;
+      display.refresh(currentPlayer.name);
+    }
+  };
 
   const handleEndGame = () => {
     display.endGameScreen(currentPlayer.name);
   };
 
-  function restartGame() {
+  const newGame = () => {
     board.initBoard();
-    display.refresh();
-  }
+    currentPlayer = player1;
+    display.refresh(currentPlayer.name);
+  };
 
-  /*while (!board.isWon) {
-    takeTurn(display.askColumn(currentPlayer.name));
-  }*/
-  return { takeTurn, handleEndGame, isWon };
+  return { takeTurn, handleEndGame, newGame };
 }
 
-game = new gameController();
+const game = gameController();
+game.newGame();
