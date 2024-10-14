@@ -1,31 +1,73 @@
 function displayController(board) {
-  const boardGrid = document.getElementById("board-grid");
-  const resetbutton = document.createElement("button");
-  resetbutton.textContent = "reset";
-  boardGrid.append(resetbutton);
-  resetbutton.addEventListener("click", () => {
+  const controls = document.querySelector(".controls");
+  const boardContainer = document.querySelector(".board");
+
+  const newGamebutton = document.createElement("button");
+  newGamebutton.textContent = "NEW GAME";
+  controls.append(newGamebutton);
+
+  newGamebutton.addEventListener("click", () => {
     game.newGame();
   });
 
-  for (let i = 0; i < board.getBoardArray()[0].length; i++) {
-    const button = document.createElement("button");
-    button.textContent = i;
-    button.addEventListener("click", () => {
-      game.takeTurn(i);
-    });
-    boardGrid.append(button);
-  }
+  const clearDisplay = () => {
+    while (boardContainer.firstChild) {
+      boardContainer.removeChild(boardContainer.firstChild);
+    }
+  };
+
+  const renderDisplay = (currentPlayer) => {
+    for (let i = 0; i < board.getBoardArray()[0].length; i++) {
+      const column = document.createElement("div");
+      column.classList.add("column");
+
+      for (let j = 0; j < board.getBoardArray().length; j++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        if (board.getBoardArray()[j][i] === 1) {
+          cell.classList.add("player-1");
+        } else if (board.getBoardArray()[j][i] === 2) {
+          cell.classList.add("player-2");
+        } else {
+          cell.classList.add("empty");
+        }
+        column.append(cell);
+      }
+
+      const indicator = document.createElement("div");
+      indicator.classList.add("indicator");
+      indicator.classList.add("cell");
+      if (currentPlayer.marker === 1) {
+        indicator.classList.add("player-1");
+      } else {
+        indicator.classList.add("player-2");
+      }
+      column.append(indicator);
+
+      column.addEventListener("click", () => {
+        if (!board.getIsWon()) {
+          game.takeTurn(i);
+        }
+      });
+
+      boardContainer.append(column);
+    }
+  };
 
   const refresh = (currentPlayer) => {
-    //console.clear();
-    console.log(currentPlayer);
-    board.getBoardArray().map((row) => console.log(row));
+    clearDisplay();
+    renderDisplay(currentPlayer);
   };
 
-  const endGameScreen = (winner) => {
-    console.log(winner + " Win !");
+  const showEndGameScreen = (winner) => {
+    clearDisplay();
+    renderDisplay(winner);
+    const message = document.createElement("h2");
+    message.classList.add("winner-popup");
+    message.textContent = winner.name + " a gagné";
+    boardContainer.append(message);
   };
-  return { refresh, endGameScreen };
+  return { refresh, showEndGameScreen };
 }
 
 function boardController() {
@@ -34,7 +76,12 @@ function boardController() {
   let _boardArray = [];
   let isWon = false;
 
+  const getIsWon = () => {
+    return isWon;
+  };
+
   const initBoard = () => {
+    isWon = false;
     _boardArray = [];
     for (let i = 0; i < numberOfRow; i++) {
       let row = [];
@@ -78,15 +125,67 @@ function boardController() {
       }
     }
   };
-  const checkdiagonal = () => {
-    return false;
+
+  const checkdiagonal = (row, col, marker) => {
+    let diagSWtoNE = 1;
+    let keepSW = true;
+    let keepNE = true;
+
+    let diagNWtoSE = 1;
+    let keepNW = true;
+    let keepSE = true;
+
+    const b = getBoardArray();
+    /*       col
+      [ [0],[0],[0],[0],[0]    ]
+        [0],[NE],[0],[NW],[0]
+   row  [0],[0],[CR],[0],[0]
+        [0],[SE],[0],[SW],[0]
+        [0],[0],[0],[0],[0]
+    */
+
+    for (let i = 1; i <= 3; i++) {
+      if (!(row + i >= b.length || col + i >= b[0].length) && keepSE) {
+        if (b[row + i][col + i] === marker) {
+          diagNWtoSE++;
+        } else {
+          keepSE = false;
+        }
+      }
+
+      if (!(row - i < 0 || col - i < 0) && keepNW) {
+        if (b[row - i][col - i] === marker) {
+          diagNWtoSE++;
+        } else {
+          keepNW = false;
+        }
+      }
+
+      if (!(row - i < 0 || col + i >= b[0].length) && keepNE) {
+        if (b[row - i][col + i] === marker) {
+          diagSWtoNE++;
+        } else {
+          keepNE = false;
+        }
+      }
+
+      if (!(row + i >= b.length || col - i < 0) && keepSW) {
+        if (b[row + i][col - i] === marker) {
+          diagSWtoNE++;
+        } else {
+          keepSW = false;
+        }
+      }
+    }
+
+    return diagSWtoNE >= 4 || diagNWtoSE >= 4;
   };
 
   const checkWinningMove = (row, col, marker) => {
     if (
       checkHorizontal(row, marker) ||
       checkVertical(col, marker) ||
-      checkdiagonal()
+      checkdiagonal(row, col, marker)
     ) {
       isWon = true;
     }
@@ -97,13 +196,12 @@ function boardController() {
       if (_boardArray[i][col] === 0) {
         _boardArray[i][col] = marker;
         checkWinningMove(i, col, marker);
-        console.log(isWon);
         break;
       }
     }
   };
 
-  return { getBoardArray, playMove, initBoard, isWon };
+  return { getBoardArray, playMove, initBoard, getIsWon };
 }
 
 function gameController() {
@@ -122,24 +220,22 @@ function gameController() {
 
   const takeTurn = (column) => {
     board.playMove(column, currentPlayer.marker);
-    console.log(board.isWon);
-    if (board.isWon) {
+    if (board.getIsWon()) {
       handleEndGame();
-      console.log("alo");
     } else {
       currentPlayer = currentPlayer === player1 ? player2 : player1;
-      display.refresh(currentPlayer.name);
+      display.refresh(currentPlayer);
     }
   };
 
   const handleEndGame = () => {
-    display.endGameScreen(currentPlayer.name);
+    display.showEndGameScreen(currentPlayer);
   };
 
   const newGame = () => {
     board.initBoard();
     currentPlayer = player1;
-    display.refresh(currentPlayer.name);
+    display.refresh(currentPlayer);
   };
 
   return { takeTurn, handleEndGame, newGame };

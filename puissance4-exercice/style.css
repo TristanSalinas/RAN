@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 4rem;
+}
+
+:root {
+  --clr-primary: rgb(57, 56, 69);
+  --cell-dimension: 3rem;
+}
+
+.content {
+  font-family: sans-serif;
+  position: relative;
+  height: 100vh;
+  background-color: var(--clr-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  z-index: 0;
+}
+
+.board {
+  position: relative;
+  display: flex;
+  gap: 0.25rem;
+  padding: 1rem;
+  background-color: blue;
+  border-radius: 0.25rem;
+}
+
+.column {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cell {
+  width: var(--cell-dimension);
+  height: var(--cell-dimension);
+  border-radius: var(--cell-dimension);
+  background-color: var(--clr-primary);
+}
+
+.player-1 {
+  background-color: red;
+}
+
+.player-2 {
+  background-color: yellow;
+}
+
+.player-1,
+.player-2 {
+  box-shadow: inset 4px 4px 11px 0px rgba(0, 0, 0, 0.46);
+}
+.indicator {
+  position: absolute;
+  top: -3rem;
+  z-index: -1;
+  visibility: hidden;
+}
+
+.winner-popup {
+  position: absolute;
+  font-size: var(--cell-dimension);
+  color: white;
+  left: 0;
+  width: 100%;
+  top: calc(50% - 0.5em);
+  text-align: center;
+  text-justify: center;
+}
+
+.column:hover {
+  cursor: pointer;
+  box-shadow: inset 0px 0px 11px 10px rgba(255, 255, 255, 0.712),
+    0px 0px 5px 5px rgba(255, 255, 255, 0.712);
+}
+
+.column:hover .indicator {
+  visibility: visible;
+}
